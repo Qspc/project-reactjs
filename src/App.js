@@ -3,6 +3,7 @@ import TextEditor from './pages/TextEditor';
 import Home from './pages/Home';
 import PaginationFunc from './pages/Pagination';
 import CarouselFunc from './pages/Carousel';
+import Filtering from './pages/Filtering';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/carousel" element={<CarouselFunc />} />
         <Route path="/text-editor" element={<TextEditor />} />
         <Route path="/pagination" element={<PaginationFunc />} />
+        <Route path="/filter" element={<Filtering />} />
       </Routes>
     </Router>
   );
