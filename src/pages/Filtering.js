@@ -43,19 +43,27 @@ export default function Filtering() {
       negara: 'Inggris',
     },
   ];
-  const [nilai, setNilai] = useState('');
   const [filteringResult, setFilteringResult] = useState(data);
+  const [nilai, setNilai] = useState('');
+  useEffect(() => {
+    if (nilai === '') {
+      setFilteringResult(data);
+    } else {
+      setFilteringResult(data.filter((name) => name.negara === nilai));
+    }
+    // console.log(nilai);
+  }, [nilai]);
 
   const handleChange = (e) => {
     setNilai(e.target.value);
-    setFilteringResult(data.filter((name) => name.negara === nilai));
   };
 
   return (
     <>
       <div>
         Select :
-        <select onChange={(e) => handleChange(e)} name="negara" id="negara">
+        <select onChange={handleChange} defaultValue={nilai} name="negara" id="negara">
+          <option value=""></option>
           <option value="Inggris">Inggris</option>
           <option value="Spanyol">Spanyol</option>
           <option value="Italia">Italia</option>
