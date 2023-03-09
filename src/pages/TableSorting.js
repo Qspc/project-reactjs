@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 export default function TableSorting() {
   const columns = [
     { label: 'First Name', accessor: 'first_name' },
@@ -6,7 +8,7 @@ export default function TableSorting() {
     { label: 'Gender', accessor: 'gender' },
     { label: 'IP Adress', accessor: 'ip_address' },
   ];
-  const tableData = [
+  const [tableData, setTableData] = useState([
     { id: 1, first_name: 'Leeanne', last_name: 'Kneaphsey', email: 'lkneaphsey0@linkedin.com', gender: 'Female', ip_address: '184.163.83.169' },
     { id: 2, first_name: 'Beatrisa', last_name: 'Cowthard', email: 'bcowthard1@people.com.cn', gender: 'Female', ip_address: '161.168.51.146' },
     { id: 3, first_name: 'Hasheem', last_name: 'Aubert', email: 'haubert2@google.co.uk', gender: 'Male', ip_address: '63.132.39.183' },
@@ -17,14 +19,27 @@ export default function TableSorting() {
     { id: 8, first_name: 'Judon', last_name: 'Kepling', email: 'jkepling7@sourceforge.net', gender: 'Male', ip_address: '63.26.51.61' },
     { id: 9, first_name: 'Curt', last_name: 'Dowley', email: 'cdowley8@apache.org', gender: 'Male', ip_address: '148.254.116.253' },
     { id: 10, first_name: 'Silvain', last_name: 'Wallis', email: 'swallis9@blog.com', gender: 'Male', ip_address: '222.128.216.125' },
-  ];
+  ]);
+
+  const handleSort = (nilai) => {
+    // console.log(params);
+    const data1 = [...tableData].sort((a, b) => (a[nilai] < b[nilai] ? 1 : -1));
+    setTableData(data1);
+  };
+  // const cekNilai = (nilai) => {
+  //   console.log(nilai);
+  // };
   return (
     <>
       <table className="table">
         <thead>
           <tr>
             {columns.map(({ label, accessor }) => {
-              return <th key={accessor}>{label}</th>;
+              return (
+                <th key={accessor}>
+                  <button onClick={() => handleSort(accessor)}> {label}</button>
+                </th>
+              );
             })}
           </tr>
         </thead>
@@ -32,53 +47,17 @@ export default function TableSorting() {
           {tableData.map((data) => {
             return (
               <tr key={data.id}>
-                {columns.map(({ accessor }) => {
-                  const tData = data[accessor] ? data[accessor] : '——';
-                  return <td key={accessor}>{tData}</td>;
-                })}
+                <td>{data.first_name} </td>
+                <td>{data.last_name} </td>
+                <td>{data.email} </td>
+                <td>{data.gender} </td>
+                <td>{data.ip_address} </td>
               </tr>
             );
           })}
         </tbody>
       </table>
-
-      <table>
-        <tr>
-          <th>Company</th>
-          <th>Contact</th>
-          <th>Country</th>
-        </tr>
-        <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>Maria Anders</td>
-          <td>Germany</td>
-        </tr>
-        <tr>
-          <td>Centro comercial Moctezuma</td>
-          <td>Francisco Chang</td>
-          <td>Mexico</td>
-        </tr>
-        <tr>
-          <td>Ernst Handel</td>
-          <td>Roland Mendel</td>
-          <td>Austria</td>
-        </tr>
-        <tr>
-          <td>Island Trading</td>
-          <td>Helen Bennett</td>
-          <td>UK</td>
-        </tr>
-        <tr>
-          <td>Laughing Bacchus Winecellars</td>
-          <td>Yoshi Tannamuri</td>
-          <td>Canada</td>
-        </tr>
-        <tr>
-          <td>Magazzini Alimentari Riuniti</td>
-          <td>Giovanni Rovelli</td>
-          <td>Italy</td>
-        </tr>
-      </table>
+      <button onClick={handleSort}>cek</button>
     </>
   );
 }
