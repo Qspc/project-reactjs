@@ -20,24 +20,32 @@ export default function TableSorting() {
     { id: 9, first_name: 'Curt', last_name: 'Dowley', email: 'cdowley8@apache.org', gender: 'Male', ip_address: '148.254.116.253' },
     { id: 10, first_name: 'Silvain', last_name: 'Wallis', email: 'swallis9@blog.com', gender: 'Male', ip_address: '222.128.216.125' },
   ]);
+  const [newData, setNewData] = useState(false);
+  const [params, setParams] = useState('');
 
   const handleSort = (nilai) => {
+    // console.log(nilai);
     // console.log(params);
-    const data1 = [...tableData].sort((a, b) => (a[nilai] < b[nilai] ? 1 : -1));
+    if (params === nilai) {
+      setNewData(!newData);
+    } else {
+      setParams(nilai);
+      setNewData(true);
+    }
+    const data1 = newData ? [...tableData].sort((a, b) => (a[nilai] < b[nilai] ? -1 : 1)) : [...tableData].sort((a, b) => (a[nilai] < b[nilai] ? 1 : -1));
     setTableData(data1);
   };
-  // const cekNilai = (nilai) => {
-  //   console.log(nilai);
-  // };
+
   return (
     <>
-      <table className="table">
+      <table className="table" style={{ border: '2px solid black', borderCollapse: 'collapse' }}>
         <thead>
-          <tr>
+          <tr style={{}}>
             {columns.map(({ label, accessor }) => {
               return (
-                <th key={accessor}>
-                  <button onClick={() => handleSort(accessor)}> {label}</button>
+                <th key={accessor} style={{ backgroundColor: '#96D4D4', border: '2px solid black', padding: '5px 20px' }}>
+                  {label}
+                  <button style={{ padding: '5px', marginLeft: '15px' }} onClick={() => handleSort(accessor)}></button>
                 </th>
               );
             })}
@@ -47,17 +55,18 @@ export default function TableSorting() {
           {tableData.map((data) => {
             return (
               <tr key={data.id}>
-                <td>{data.first_name} </td>
-                <td>{data.last_name} </td>
-                <td>{data.email} </td>
-                <td>{data.gender} </td>
-                <td>{data.ip_address} </td>
+                {/* <td style={{ border: '2px solid black', padding: '3px 5px' }}>{data.id} </td> */}
+                <td style={{ border: '2px solid black', padding: '3px 5px' }}>{data.first_name} </td>
+                <td style={{ border: '2px solid black', padding: '3px 5px' }}>{data.last_name} </td>
+                <td style={{ border: '2px solid black', padding: '3px 5px' }}>{data.email} </td>
+                <td style={{ border: '2px solid black', padding: '3px 5px' }}>{data.gender} </td>
+                <td style={{ border: '2px solid black', padding: '3px 5px' }}>{data.ip_address} </td>
               </tr>
             );
           })}
         </tbody>
       </table>
-      <button onClick={handleSort}>cek</button>
+      {/* <button onClick={handleSort}>cek</button> */}
     </>
   );
 }
