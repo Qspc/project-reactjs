@@ -5,6 +5,7 @@ import PaginationFunc from './pages/Pagination';
 import CarouselFunc from './pages/Carousel';
 import Filtering from './pages/Filtering';
 import TableSorting from './pages/TableSorting';
+import FormCompleted from './pages/FormCompleted';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/pagination" element={<PaginationFunc />} />
         <Route path="/filter" element={<Filtering />} />
         <Route path="/table" element={<TableSorting />} />
+        <Route path="/form" element={<FormCompleted />} />
       </Routes>
     </Router>
   );
