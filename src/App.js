@@ -6,6 +6,7 @@ import CarouselFunc from './pages/Carousel';
 import Filtering from './pages/Filtering';
 import TableSorting from './pages/TableSorting';
 import FormCompleted from './pages/FormCompleted';
+import UpdateSorting from './pages/UpdateSorting';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/filter" element={<Filtering />} />
         <Route path="/table" element={<TableSorting />} />
         <Route path="/form" element={<FormCompleted />} />
+        {/* <Route path="/update" element={<UpdateSorting />} /> */}
       </Routes>
     </Router>
   );
