@@ -19,7 +19,7 @@ function App() {
         <Route path="/filter" element={<Filtering />} />
         <Route path="/table" element={<TableSorting />} />
         <Route path="/form" element={<FormCompleted />} />
-        {/* <Route path="/update" element={<UpdateSorting />} /> */}
+        <Route path="/update" element={<UpdateSorting />} />
       </Routes>
     </Router>
   );
