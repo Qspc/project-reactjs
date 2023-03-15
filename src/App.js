@@ -7,6 +7,7 @@ import Filtering from './pages/Filtering';
 import TableSorting from './pages/TableSorting';
 import FormCompleted from './pages/FormCompleted';
 import UpdateSorting from './pages/UpdateSorting';
+import SearchInput from './pages/SearchInput';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/table" element={<TableSorting />} />
         <Route path="/form" element={<FormCompleted />} />
         <Route path="/update" element={<UpdateSorting />} />
+        <Route path="/search" element={<SearchInput />} />
       </Routes>
     </Router>
   );
