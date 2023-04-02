@@ -12,7 +12,7 @@ export default function FormCompleted() {
     tanggal: '',
     agama: '',
     kendaraan: [],
-    skill: '',
+    skills: [],
   });
 
   const handleNamaDepan = (e) => {
@@ -60,17 +60,41 @@ export default function FormCompleted() {
     setForm(newData);
   };
   const handleKendaraan = (e) => {
-    // const newData = {
-    //   ...form,
-    //   agama: e.target.value,
-    // };
-    // setForm(newData);
-    console.log(e.target.value);
+    if (e.target.checked === true) {
+      const newData = {
+        ...form,
+        kendaraan: [...form.kendaraan, e.target.value],
+      };
+      setForm(newData);
+    }
+  };
+  const handleAddSkill = () => {
+    // console.log('masuk');
+    setForm({
+      ...form,
+      skills: [...form.skills, { skill: '' }],
+    });
+  };
+  const handleSkill = (index, e) => {
+    const newForm = {
+      ...form,
+    };
+    newForm.skills[index].skill = e.target.value;
+    setForm(newForm);
+  };
+  const handleDeleteSkill = (index) => {
+    const header = form.skills;
+    header.splice(index, 1);
+    const newForm = {
+      ...form,
+      skills: header,
+    };
+    setForm(newForm);
   };
 
   const handleSubmit = (e) => {
-    e.prevent.default();
-    console.log(form.tanggal);
+    // e.prevent.default();
+    console.log(form.kendaraan);
   };
   return (
     <>
@@ -120,15 +144,33 @@ export default function FormCompleted() {
         </label>
         <br />
         <label>
-          Skill:
-          <input type="text" name="skill" /> <br />
+          <button type="button" onClick={handleAddSkill}>
+            Add Skill +
+          </button>
+          <br />
+          {form.skills.length !== 0 ? (
+            <>
+              {form.skills.map((c, index) => (
+                <>
+                  <label>
+                    Skill:
+                    <input key={index} type="text" name="skill" onChange={(e) => handleSkill(index, e)} value={form.skills[index].skill} />
+                    <button type="button" onClick={() => handleDeleteSkill(index)}>
+                      delete
+                    </button>
+                    <br />
+                  </label>
+                </>
+              ))}
+            </>
+          ) : (
+            <></>
+          )}
         </label>
-        <button type="submit" onClick={handleSubmit}>
+        <button type="button" onClick={handleSubmit}>
           Submit
         </button>
       </form>
-      username - biasa password - password nama depan & nama belakang - biasa tgl lahir - date format agama - radio button kendaraan - checkbox button skill - optional button submit button - hidden
-      <h1>must required, ada ID random angka, konfirmasi semua diisi</h1>
     </>
   );
 }
