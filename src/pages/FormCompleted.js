@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import '../App.css';
 // import IconButton from '@mui/material/IconButton';
 // import Visibility from '@mui/icons-material/Visibility';
 // import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -14,6 +15,14 @@ export default function FormCompleted() {
     kendaraan: [],
     skills: [],
   });
+  const checkList = ['mobil', 'motor', 'truk'];
+  const [checked, setChecked] = useState([]);
+
+  useEffect(() => {
+    const newData = { ...form };
+    newData.kendaraan = checked;
+    setForm(newData);
+  }, [checked]);
 
   const handleNamaDepan = (e) => {
     const newData = {
@@ -59,17 +68,16 @@ export default function FormCompleted() {
     };
     setForm(newData);
   };
-  const handleKendaraan = (e) => {
-    if (e.target.checked === true) {
-      const newData = {
-        ...form,
-        kendaraan: [...form.kendaraan, e.target.value],
-      };
-      setForm(newData);
+  const handleKendaraan = (event) => {
+    var updatedList = [...checked];
+    if (event.target.checked) {
+      updatedList = [...checked, event.target.value];
+    } else {
+      updatedList.splice(checked.indexOf(event.target.value), 1);
     }
+    setChecked(updatedList);
   };
   const handleAddSkill = () => {
-    // console.log('masuk');
     setForm({
       ...form,
       skills: [...form.skills, { skill: '' }],
@@ -83,94 +91,110 @@ export default function FormCompleted() {
     setForm(newForm);
   };
   const handleDeleteSkill = (index) => {
-    const header = form.skills;
-    header.splice(index, 1);
+    const skills = form.skills;
+    skills.splice(index, 1);
     const newForm = {
       ...form,
-      skills: header,
+      skills: skills,
     };
     setForm(newForm);
   };
 
   const handleSubmit = (e) => {
     // e.prevent.default();
-    console.log(form.kendaraan);
+    console.log(checked);
+    console.log(form);
   };
   return (
     <>
-      <form>
-        <label>
-          Nama Depan:
-          <input type="text" name="namaDepan" onChange={handleNamaDepan} value={form.namaDepan} /> <br />
-        </label>
-        <label>
-          Nama Belakang:
-          <input type="text" name="nama belakang" onChange={handleNamaBelakang} value={form.namaBelakang} /> <br />
-        </label>
-        <label>
-          Username:
-          <input type="text" name="username" value={judul} disabled /> <br />
-        </label>
-        <label>
-          Password:
-          <input type={passwordShow ? 'password' : 'text'} name="password" onChange={handleNamaPassword} value={form.password} />
-          <button type="button" onClick={handleShowPassword}>
-            .
-          </button>
+      <div className="formCard">
+        <form>
+          <label>
+            Nama Depan:
+            <input type="text" name="namaDepan" onChange={handleNamaDepan} value={form.namaDepan} /> <br />
+          </label>
+          <label>
+            Nama Belakang:
+            <input type="text" name="nama belakang" onChange={handleNamaBelakang} value={form.namaBelakang} /> <br />
+          </label>
+          <label>
+            Username:
+            <input type="text" name="username" value={judul} disabled /> <br />
+          </label>
+          <label>
+            Password:
+            <input type={passwordShow ? 'password' : 'text'} name="password" onChange={handleNamaPassword} value={form.password} />
+            <button type="button" onClick={handleShowPassword}>
+              .
+            </button>
+            <br />
+          </label>
+          <label>
+            Tanggal Lahir:
+            <input type="date" name="tanggal lahir" onChange={handleTanggal} value={form.tanggal} /> <br />
+          </label>
+          <label onChange={handleAgama}>
+            Agama:
+            <input type="radio" name="agama" value="Islam" />
+            <label>Islam</label>
+            <input type="radio" name="agama" value="Kristen" />
+            <label>Kristen</label>
+            <input type="radio" name="agama" value="yahudi" />
+            <label>yahudi</label>
+          </label>
           <br />
-        </label>
-        <label>
-          Tanggal Lahir:
-          <input type="date" name="tanggal lahir" onChange={handleTanggal} value={form.tanggal} /> <br />
-        </label>
-        <label onChange={handleAgama}>
-          Agama:
-          <input type="radio" name="agama" value="Islam" />
-          <label>Islam</label>
-          <input type="radio" name="agama" value="Kristen" />
-          <label>Kristen</label>
-          <input type="radio" name="agama" value="yahudi" />
-          <label>yahudi</label>
-        </label>
-        <br />
-        <label onChange={handleKendaraan}>
-          Kendaraan:
-          <input type="checkbox" id="contactChoice1" name="contact" value="mobil" />
-          <label>mobil </label>
-          <input type="checkbox" id="contactChoice2" name="contact" value="motor" />
-          <label>motor</label>
-          <input type="checkbox" id="contactChoice3" name="contact" value="truk" />
-          <label>truk</label>
-        </label>
-        <br />
-        <label>
-          <button type="button" onClick={handleAddSkill}>
-            Add Skill +
+          <label>
+            Kendaraan:
+            {checkList.map((data, index) => (
+              <div key={index} onChange={handleKendaraan}>
+                <input type="checkbox" id={data} name="kendaraan" value={data} />
+                <label>{data} </label>
+                <br />
+              </div>
+            ))}
+          </label>
+
+          <label>
+            <button type="button" onClick={handleAddSkill}>
+              Add Skill +
+            </button>
+            <br />
+            {form.skills.length > 0 ? (
+              <>
+                {form.skills.map((c, index) => (
+                  <>
+                    <label>
+                      Skill:
+                      <input key={index} type="text" name="skill" onChange={(e) => handleSkill(index, e)} value={form.skills[index].skill} />
+                      <button type="button" onClick={() => handleDeleteSkill(index)}>
+                        delete
+                      </button>
+                      <br />
+                    </label>
+                  </>
+                ))}
+              </>
+            ) : (
+              <></>
+            )}
+          </label>
+          <button type="button" onClick={handleSubmit}>
+            Submit
           </button>
-          <br />
-          {form.skills.length !== 0 ? (
-            <>
-              {form.skills.map((c, index) => (
-                <>
-                  <label>
-                    Skill:
-                    <input key={index} type="text" name="skill" onChange={(e) => handleSkill(index, e)} value={form.skills[index].skill} />
-                    <button type="button" onClick={() => handleDeleteSkill(index)}>
-                      delete
-                    </button>
-                    <br />
-                  </label>
-                </>
-              ))}
-            </>
-          ) : (
-            <></>
-          )}
-        </label>
-        <button type="button" onClick={handleSubmit}>
-          Submit
-        </button>
-      </form>
+        </form>
+      </div>
+
+      {/* <div>
+        Halo perkenalkan saya {form.namaDepan} {form.namaBelakang} dengan username {form.username} lahir pada tanggal {form.tanggal}. Saya memeluk agama {form.agama} dan selama ini saya memiliki berbagai kendaraan seperti
+        {form.kendaraan.map((data, index) => (
+          <span key={{ index }}> {data}</span>
+        ))}
+        . saya memiliki berbagai kemampuan diantaranya
+        {form.skills.map((data, index) => (
+          <div key={{ index }}>{data}</div>
+        ))}
+        .
+      </div> */}
     </>
   );
 }
