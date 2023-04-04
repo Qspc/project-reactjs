@@ -26,15 +26,30 @@ export default function PaginationFunc() {
   }
 
   return (
-    <>
+    <div>
       {_DATA.map((data, index) => (
-        <div key={index} style={{ width: '80%', border: '2px solid black', display: 'flex', flexDirection: 'column', textAlign: 'center', margin: 'auto', padding: '150px 0px 150px 0px' }}>
+        <div
+          key={index}
+          style={{
+            width: '80%',
+            border: '0.1px solid white',
+            boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.07)',
+            borderRadius: '8px',
+            display: 'flex',
+            flexDirection: 'column',
+            textAlign: 'center',
+            margin: 'auto',
+            padding: '150px 0px 150px 0px',
+            background: 'white',
+            opacity: '90%',
+          }}
+        >
           <Container maxWidth="sm">{data}</Container>
         </div>
       ))}
       <div style={{ marginLeft: '500px', padding: '15px 0px 15px 0px' }}>
-        <Pagination alignItems="center" justifyContent="center" onChange={handleChangePage} page={halaman} count={lengthPage} color="primary" />
+        <Pagination style={{}} alignItems="center" justifyContent="center" onChange={handleChangePage} page={halaman} count={lengthPage} color="primary" />
       </div>
-    </>
+    </div>
   );
 }
