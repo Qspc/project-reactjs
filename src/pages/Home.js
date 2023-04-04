@@ -1,36 +1,57 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import logo from '../../public/logo192.png';
 
 const Home = () => {
+  const content = [
+    {
+      title: 'Carousel',
+      link: '/carousel',
+    },
+    {
+      title: 'Filtering',
+      link: '/filter',
+    },
+    {
+      title: 'Form',
+      link: '/form',
+    },
+    {
+      title: 'Pagination',
+      link: '/pagination',
+    },
+    {
+      title: 'Search Input',
+      link: '/search',
+    },
+    {
+      title: 'Table Sorting',
+      link: '/table',
+    },
+    {
+      title: 'Text Editor',
+      link: '/text-editor',
+    },
+    {
+      title: 'Update Sorting',
+      link: '/update',
+    },
+  ];
+
   return (
     <div>
       <h1>All Project using ReactJs</h1>
-      <ul>
-        <li>
-          <Link to="/carousel">Carousel</Link>
-        </li>
-        <li>
-          <Link to="/filter">Filtering</Link>
-        </li>
-        <li>
-          <Link to="/form">Form</Link>
-        </li>
-        <li>
-          <Link to="/pagination">Pagination</Link>
-        </li>
-        <li>
-          <Link to="/search">Search input</Link>
-        </li>
-        <li>
-          <Link to="/table">Table sorting</Link>
-        </li>
-        <li>
-          <Link to="/text-editor">Text editor</Link>
-        </li>
-        <li>
-          <Link to="/update">Update sorting</Link>
-        </li>
-      </ul>
+      <div className="flex">
+        {content.map((data, index) => (
+          <div key={index} className="Card">
+            <p>{data.title}</p>
+            {/* <img src={logo} alt="logo"></img> */}
+            <Link to={data.link}>
+              <button>More</button>
+            </Link>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

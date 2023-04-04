@@ -8,6 +8,8 @@ import TableSorting from './pages/TableSorting';
 import FormCompleted from './pages/FormCompleted';
 import UpdateSorting from './pages/UpdateSorting';
 import SearchInput from './pages/SearchInput';
+import './index.css';
+import './App.css';
 
 function App() {
   return (
