@@ -15,10 +15,8 @@ export default function SearchInput() {
   useEffect(() => {
     if (searchResult) {
       const newData = data.filter((item) => Object.values(item.name.common).join('').toLowerCase().includes(searchResult.toLowerCase()));
-      // setCountry(newData);
       setResult(newData);
     } else {
-      // console.log(data);
       setResult(data);
     }
   }, [searchResult, data]);
@@ -34,15 +32,22 @@ export default function SearchInput() {
 
   return (
     <>
-      <input onChange={(e) => setSearchResult(e.target.value)} type="text" placeholder="Search Countries..." />
+      <h1>List of animal:</h1>
+
       <div>
-        <h1>List of animal:</h1>
-        <h4> {filtered} result </h4>
-        <ul>
+        <div style={{ margin: '40px 60px' }}>
+          <input style={{ padding: '0.2em 0.5em', font: 'inherit' }} onChange={(e) => setSearchResult(e.target.value)} type="text" placeholder="Search Countries..." />
+          <span style={{ fontWeight: 'bold', fontSize: '14px' }}> {filtered} result </span>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
           {result.map((data, index) => (
-            <li key={index}> {data.name.common} </li>
+            <div key={index} style={{ width: '200px', height: '3rem', marginLeft: '5px' }}>
+              {data.name.common}
+            </div>
           ))}
-        </ul>
+        </div>
+        <ul></ul>
       </div>
     </>
   );

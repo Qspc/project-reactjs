@@ -37,15 +37,18 @@ export default function TableSorting() {
   };
 
   return (
-    <>
-      <table className="table" style={{ border: '2px solid black', borderCollapse: 'collapse' }}>
+    <div>
+      <h1 style={{ marginBottom: '5rem' }}>Table With Ascending Descending</h1>
+      <table className="table" style={{ border: '2px solid black', borderCollapse: 'collapse', marginLeft: 'auto', marginRight: 'auto' }}>
         <thead>
           <tr style={{}}>
             {columns.map(({ label, accessor }) => {
               return (
-                <th key={accessor} style={{ backgroundColor: '#96D4D4', border: '2px solid black', padding: '5px 20px' }}>
+                <th key={accessor} style={{ backgroundColor: '#96D4D4', border: '2px solid black', padding: '1rem 3rem', position: 'relative' }}>
                   {label}
-                  <button style={{ padding: '5px', marginLeft: '15px' }} onClick={() => handleSort(accessor)}></button>
+                  <button style={{ position: 'absolute', right: 0, bottom: 0, margin: '2px' }} onClick={() => handleSort(accessor)}>
+                    sort
+                  </button>
                 </th>
               );
             })}
@@ -54,8 +57,7 @@ export default function TableSorting() {
         <tbody>
           {tableData.map((data) => {
             return (
-              <tr key={data.id}>
-                {/* <td style={{ border: '2px solid black', padding: '3px 5px' }}>{data.id} </td> */}
+              <tr key={data.id} style={{ backgroundColor: 'white' }}>
                 <td style={{ border: '2px solid black', padding: '3px 5px' }}>{data.first_name} </td>
                 <td style={{ border: '2px solid black', padding: '3px 5px' }}>{data.last_name} </td>
                 <td style={{ border: '2px solid black', padding: '3px 5px' }}>{data.email} </td>
@@ -66,7 +68,6 @@ export default function TableSorting() {
           })}
         </tbody>
       </table>
-      {/* <button onClick={handleSort}>cek</button> */}
-    </>
+    </div>
   );
 }

@@ -32,19 +32,23 @@ export default function PaginationFunc() {
           key={index}
           style={{
             width: '80%',
-            border: '0.1px solid white',
             boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.07)',
             borderRadius: '8px',
             display: 'flex',
             flexDirection: 'column',
             textAlign: 'center',
-            margin: 'auto',
+            marginTop: '5rem',
+            marginLeft: 'auto',
+            marginRight: 'auto',
             padding: '150px 0px 150px 0px',
             background: 'white',
             opacity: '90%',
+            backgroundColor: 'rgb(115, 205, 255)',
           }}
         >
-          <Container maxWidth="sm">{data}</Container>
+          <Container maxWidth="sm">
+            <h1>{data}</h1>
+          </Container>
         </div>
       ))}
       <div style={{ marginLeft: '500px', padding: '15px 0px 15px 0px' }}>

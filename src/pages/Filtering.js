@@ -79,14 +79,13 @@ export default function Filtering() {
           <div
             key={index}
             style={{
-              border: '0.1px solid white',
               borderRadius: '8px',
               flexBasis: '300px',
               margin: '10px',
               padding: '30px 50px',
               textAlign: 'center',
               fontWeight: 'bold',
-              backgroundColor: 'white',
+              backgroundColor: 'rgb(115, 205, 255)',
               boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.07)',
             }}
           >
