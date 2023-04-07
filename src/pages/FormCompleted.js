@@ -107,27 +107,21 @@ export default function FormCompleted() {
   };
   return (
     <>
-      <div className="formCard">
+      <div className="FormInput">
+        <h2>Form</h2>
         <form>
           <label>
-            Nama Depan:
-            <input type="text" name="namaDepan" onChange={handleNamaDepan} value={form.namaDepan} /> <br />
+            Nama Lengkap:
+            <input placeholder="Nama Depan" className="input" type="text" name="namaDepan" onChange={handleNamaDepan} value={form.namaDepan} /> <br />
+            <input className="input" placeholder="Nama Belakang" type="text" name="nama belakang" onChange={handleNamaBelakang} value={form.namaBelakang} /> <br />
           </label>
           <label>
-            Nama Belakang:
-            <input type="text" name="nama belakang" onChange={handleNamaBelakang} value={form.namaBelakang} /> <br />
-          </label>
-          <label>
-            Username:
-            <input type="text" name="username" value={judul} disabled /> <br />
-          </label>
-          <label>
-            Password:
-            <input type={passwordShow ? 'password' : 'text'} name="password" onChange={handleNamaPassword} value={form.password} />
+            Sign Up:
+            <input className="input" placeholder="Username" type="text" name="username" value={judul} disabled /> <br />
+            <input className="input" placeholder="Password" type={passwordShow ? 'password' : 'text'} name="password" onChange={handleNamaPassword} value={form.password} />
             <button type="button" onClick={handleShowPassword}>
               .
             </button>
-            <br />
           </label>
           <label>
             Tanggal Lahir:
@@ -198,3 +192,13 @@ export default function FormCompleted() {
     </>
   );
 }
+
+<style>
+  .FormInput
+  {{
+    border: '1px solid black',
+    marginTop: '5rem',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  }}
+</style>;

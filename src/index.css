@@ -68,3 +68,8 @@ h1 {
   font-weight: 600;
   color: navy;
 }
+
+.input {
+  padding: 0.2em 0.5em;
+  font: inherit;
+}

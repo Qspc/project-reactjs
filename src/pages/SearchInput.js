@@ -2,23 +2,18 @@ import { useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
 
 export default function SearchInput() {
-  const [data, setData] = useState([]);
-  const [searchResult, setSearchResult] = useState('');
-  const [result, setResult] = useState([]);
+  const [data, setData] = useState([]); //inisiasi pertama
+  const [searchResult, setSearchResult] = useState(''); //input yang dicari
+  const [result, setResult] = useState([]); //yg dipakai dalam looping
+
   let filtered = useMemo(() => {
     if (searchResult) {
       const newData = data.filter((item) => Object.values(item.name.common).join('').toLowerCase().includes(searchResult.toLowerCase()));
+      setResult(newData);
       return newData.length;
     }
+    setResult(data);
     return data.length;
-  }, [searchResult, data]);
-  useEffect(() => {
-    if (searchResult) {
-      const newData = data.filter((item) => Object.values(item.name.common).join('').toLowerCase().includes(searchResult.toLowerCase()));
-      setResult(newData);
-    } else {
-      setResult(data);
-    }
   }, [searchResult, data]);
 
   useEffect(() => {
