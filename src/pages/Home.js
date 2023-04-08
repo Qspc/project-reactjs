@@ -36,6 +36,30 @@ const Home = () => {
       title: 'Update Sorting',
       link: '/update',
     },
+    {
+      title: 'Tabs',
+      link: '/tab',
+    },
+    {
+      title: 'Card Completed',
+      link: '/card',
+    },
+    {
+      title: 'Accordion',
+      link: '/accordion',
+    },
+    {
+      title: 'Input Nmuber',
+      link: '/sort',
+    },
+    {
+      title: 'Navbar',
+      link: '/navbar',
+    },
+    {
+      title: 'Modal',
+      link: '/modal',
+    },
   ];
 
   return (
