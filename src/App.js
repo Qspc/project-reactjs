@@ -11,6 +11,8 @@ import SearchInput from './pages/SearchInput';
 import Tabs from './pages/Tabs';
 import './index.css';
 import './App.css';
+import Accordion from './pages/Accordion';
+import Modal from './pages/Modal';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         <Route path="/update" element={<UpdateSorting />} />
         <Route path="/search" element={<SearchInput />} />
         <Route path="/tab" element={<Tabs />} />
+        <Route path="/accordion" element={<Accordion />} />
+        <Route path="/modal" element={<Modal />} />
       </Routes>
     </Router>
   );
