@@ -85,7 +85,7 @@ export default function Filtering() {
               padding: '30px 50px',
               textAlign: 'center',
               fontWeight: 'bold',
-              backgroundColor: 'rgb(115, 205, 255)',
+              backgroundColor: '#F6F7C1',
               boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.07)',
             }}
           >
