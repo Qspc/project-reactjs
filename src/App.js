@@ -12,7 +12,7 @@ import Tabs from './pages/Tabs';
 import './index.css';
 import './App.css';
 import Accordion from './pages/Accordion';
-import Modal from './pages/Modal';
+import ModalFunc from './pages/Modal';
 
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
         <Route path="/search" element={<SearchInput />} />
         <Route path="/tab" element={<Tabs />} />
         <Route path="/accordion" element={<Accordion />} />
-        <Route path="/modal" element={<Modal />} />
+        <Route path="/modal" element={<ModalFunc />} />
       </Routes>
     </Router>
   );
