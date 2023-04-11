@@ -1,3 +1,9 @@
 export default function InputNumber() {
-  return <></>;
+  return (
+    <>
+      <div>
+        <input type="number" />
+      </div>
+    </>
+  );
 }
