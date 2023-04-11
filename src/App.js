@@ -11,8 +11,12 @@ import SearchInput from './pages/SearchInput';
 import Tabs from './pages/Tabs';
 import './index.css';
 import './App.css';
-import Accordion from './pages/Accordion';
 import ModalFunc from './pages/Modal';
+import NavbarFunc from './pages/Navbar';
+import AccordionFunc from './pages/Accordion';
+import DrawerFunc from './pages/Drawer';
+import CardFunc from './pages/Card';
+import InputNumber from './pages/InputNumber';
 
 function App() {
   return (
@@ -28,8 +32,12 @@ function App() {
         <Route path="/update" element={<UpdateSorting />} />
         <Route path="/search" element={<SearchInput />} />
         <Route path="/tab" element={<Tabs />} />
-        <Route path="/accordion" element={<Accordion />} />
+        <Route path="/accordion" element={<AccordionFunc />} />
         <Route path="/modal" element={<ModalFunc />} />
+        <Route path="/navbar" element={<NavbarFunc />} />
+        <Route path="/drawer" element={<DrawerFunc />} />
+        <Route path="/card" element={<CardFunc />} />
+        <Route path="/input-number" element={<InputNumber />} />
       </Routes>
     </Router>
   );

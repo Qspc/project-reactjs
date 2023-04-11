@@ -60,7 +60,7 @@ h1 {
 .button {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.07);
   border: 0.1px solid white;
-  border-radius: 8px;
+  border-radius: 16px;
   align-item: center;
   padding: 3px 30px;
   font-size: 16px;

@@ -50,7 +50,7 @@ const Home = () => {
     },
     {
       title: 'Input Nmuber',
-      link: '/sort',
+      link: '/input-number',
     },
     {
       title: 'Navbar',
@@ -59,6 +59,10 @@ const Home = () => {
     {
       title: 'Modal',
       link: '/modal',
+    },
+    {
+      title: 'Drawer',
+      link: '/drawer',
     },
   ];
 

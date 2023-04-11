@@ -3,7 +3,11 @@ import Modal from '@mui/material/Modal';
 
 export default function ModalFunc() {
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
+  const [index, setIndex] = useState(0);
+  const handleOpen = (index) => {
+    setOpen(true);
+    setIndex(index);
+  };
   const handleClose = () => setOpen(false);
 
   const answer = [
@@ -28,6 +32,13 @@ export default function ModalFunc() {
       text: 'Mogadishu',
     },
   ];
+  const handleAnswer = () => {
+    if (index === 2) {
+      alert('Jawaban anda benar');
+    } else {
+      alert('Jawaban salah');
+    }
+  };
 
   return (
     <>
@@ -36,11 +47,11 @@ export default function ModalFunc() {
         {answer.map((data, index) => (
           <>
             {data.id % 2 === 0 ? (
-              <div className="grid-element" key={data.id} style={{ gridColumnStart: '3', gridColumnEnd: '5', textAlign: 'center' }} onClick={handleOpen}>
+              <div className="grid-element" key={data.id} style={{ gridColumnStart: '3', gridColumnEnd: '5', textAlign: 'center' }} onClick={() => handleOpen(data.id)}>
                 {data.option}. {data.text}
               </div>
             ) : (
-              <div className="grid-element" key={data.id} style={{ gridColumnStart: '1', gridColumnEnd: '3', textAlign: 'center' }} onClick={handleOpen}>
+              <div className="grid-element" key={data.id} style={{ gridColumnStart: '1', gridColumnEnd: '3', textAlign: 'center' }} onClick={() => handleOpen(data.id)}>
                 {data.option}. {data.text}
               </div>
             )}
@@ -52,10 +63,10 @@ export default function ModalFunc() {
         <div className="modal">
           <div style={{ padding: '1rem 3rem' }}>
             <h2 style={{ paddingBottom: '1rem' }}>Anda yakin dengan jawabannya?</h2>
-            <button className="button" style={{ marginRight: '2rem' }}>
+            <button onClick={handleClose} className="button" style={{ marginRight: '2rem' }}>
               Tidak
             </button>
-            <button className="button" style={{ marginLeft: '2rem' }}>
+            <button onClick={handleAnswer} className="button" style={{ marginLeft: '2rem' }}>
               Yakin
             </button>
           </div>
