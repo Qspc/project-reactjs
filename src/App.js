@@ -28,16 +28,16 @@ function App() {
         <Route path="/pagination" element={<PaginationFunc />} />
         <Route path="/filter" element={<Filtering />} />
         <Route path="/table" element={<TableSorting />} />
-        <Route path="/form" element={<FormCompleted />} />
         <Route path="/update" element={<UpdateSorting />} />
         <Route path="/search" element={<SearchInput />} />
         <Route path="/tab" element={<Tabs />} />
         <Route path="/accordion" element={<AccordionFunc />} />
-        <Route path="/modal" element={<ModalFunc />} />
         <Route path="/navbar" element={<NavbarFunc />} />
         <Route path="/drawer" element={<DrawerFunc />} />
-        <Route path="/card" element={<CardFunc />} />
         <Route path="/input-number" element={<InputNumber />} />
+        <Route path="/form" element={<FormCompleted />} />
+        <Route path="/modal" element={<ModalFunc />} />
+        <Route path="/card" element={<CardFunc />} />
       </Routes>
     </Router>
   );

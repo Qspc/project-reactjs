@@ -34,7 +34,7 @@ export default function UpdateSorting() {
       <div style={{ width: '500px', height: '500px', border: '1px solid black', backgroundColor: 'rgb(115, 205, 255)' }}>
         <div style={{ padding: '6rem 4rem' }}>
           <div style={{ marginTop: '2rem' }}>
-            <span>Nama Film</span> <br />
+            <span>Movies Name</span> <br />
             <input style={{ padding: '0.2em 0.5em', font: 'inherit' }} onChange={handleChangeFilm} type="text" />
           </div>
           <div style={{ marginTop: '2rem' }}>

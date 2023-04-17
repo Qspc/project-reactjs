@@ -34,16 +34,16 @@ export default function ModalFunc() {
   ];
   const handleAnswer = () => {
     if (index === 2) {
-      alert('Jawaban anda benar');
+      alert('Correct Answer!!!');
     } else {
-      alert('Jawaban salah');
+      alert('Sorry, youre wrong answer');
     }
   };
 
   return (
     <>
       <div className="grid">
-        <div style={{ gridColumnStart: '1', gridColumnEnd: '5', textAlign: 'center', padding: '1rem 5rem', border: '1px solid black', borderRadius: '1rem', fontWeight: 'bold' }}>Apa Ibukota dari negara Kenya?</div>
+        <div style={{ gridColumnStart: '1', gridColumnEnd: '5', textAlign: 'center', padding: '1rem 5rem', border: '1px solid black', borderRadius: '1rem', fontWeight: 'bold' }}>What the capital city of Kenya?</div>
         {answer.map((data, index) => (
           <>
             {data.id % 2 === 0 ? (

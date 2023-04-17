@@ -57,6 +57,7 @@ export default function DrawerFunc() {
 
   return (
     <>
+      <h1 style={{ position: 'absolute', left: '0', right: '0', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center' }}>pick one</h1>
       <div className="flex" style={{ alignItems: 'stretch', alignContent: 'center', gap: '20px', height: '100vh' }}>
         {dir.map((data) => (
           <>

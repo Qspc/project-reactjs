@@ -4,43 +4,43 @@ export default function Filtering() {
   const data = [
     {
       klub: 'Chelsea',
-      negara: 'Inggris',
+      negara: 'England',
     },
     {
       klub: 'Barcelona',
-      negara: 'Spanyol',
+      negara: 'Spain',
     },
     {
       klub: 'Real madrid',
-      negara: 'Spanyol',
+      negara: 'Spain',
     },
     {
       klub: 'Liverpool',
-      negara: 'Inggris',
+      negara: 'England',
     },
     {
       klub: 'AC milan',
-      negara: 'Italia',
+      negara: 'Italy',
     },
     {
-      klub: 'Manchaster United',
-      negara: 'Inggris',
+      klub: 'Manchester United',
+      negara: 'England',
     },
     {
       klub: 'Inter milan',
-      negara: 'Italia',
+      negara: 'Italy',
     },
     {
       klub: 'Villareal',
-      negara: 'Spanyol',
+      negara: 'Spain',
     },
     {
       klub: 'Juventus',
-      negara: 'Italia',
+      negara: 'Italy',
     },
     {
-      klub: 'Manchaster City',
-      negara: 'Inggris',
+      klub: 'Manchester City',
+      negara: 'England',
     },
   ];
   const [filteringResult, setFilteringResult] = useState(data);
@@ -69,9 +69,9 @@ export default function Filtering() {
           id="negara"
         >
           <option value="">Select Country:</option>
-          <option value="Inggris">Inggris</option>
-          <option value="Spanyol">Spanyol</option>
-          <option value="Italia">Italia</option>
+          <option value="England">England</option>
+          <option value="Spain">Spain</option>
+          <option value="Italy">Italy</option>
         </select>
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', flexDirection: 'row' }}>

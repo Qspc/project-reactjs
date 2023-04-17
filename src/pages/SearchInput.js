@@ -27,7 +27,7 @@ export default function SearchInput() {
 
   return (
     <>
-      <h1>List of animal:</h1>
+      <h1> All Country in the world:</h1>
 
       <div>
         <div style={{ margin: '40px 60px' }}>

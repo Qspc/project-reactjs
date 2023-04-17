@@ -5,17 +5,10 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   const content = [
     {
-      title: 'Carousel',
-      link: '/carousel',
-    },
-    {
       title: 'Filtering',
       link: '/filter',
     },
-    {
-      title: 'Form',
-      link: '/form',
-    },
+
     {
       title: 'Pagination',
       link: '/pagination',
@@ -37,13 +30,14 @@ const Home = () => {
       link: '/update',
     },
     {
+      title: 'Carousel',
+      link: '/carousel',
+    },
+    {
       title: 'Tabs',
       link: '/tab',
     },
-    {
-      title: 'Card Completed',
-      link: '/card',
-    },
+
     {
       title: 'Accordion',
       link: '/accordion',
@@ -56,13 +50,22 @@ const Home = () => {
       title: 'Navbar',
       link: '/navbar',
     },
+
+    {
+      title: 'Drawer',
+      link: '/drawer',
+    },
+    {
+      title: 'Form',
+      link: '/form',
+    },
     {
       title: 'Modal',
       link: '/modal',
     },
     {
-      title: 'Drawer',
-      link: '/drawer',
+      title: 'Card Completed',
+      link: '/card',
     },
   ];
 
