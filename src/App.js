@@ -17,6 +17,7 @@ import AccordionFunc from './pages/Accordion';
 import DrawerFunc from './pages/Drawer';
 import CardFunc from './pages/Card';
 import InputNumber from './pages/InputNumber';
+import Suit from './pages/Suit';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path="/form" element={<FormCompleted />} />
         <Route path="/modal" element={<ModalFunc />} />
         <Route path="/card" element={<CardFunc />} />
+        <Route path="/suit" element={<Suit />} />
       </Routes>
     </Router>
   );
