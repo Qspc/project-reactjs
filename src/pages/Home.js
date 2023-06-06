@@ -67,6 +67,10 @@ const Home = () => {
       title: 'Card Completed',
       link: '/card',
     },
+    {
+      title: 'Batu kertas Gunting',
+      link: '/suit',
+    },
   ];
 
   return (
