@@ -13,7 +13,6 @@ export default function BreadcumpFolder({ route, setRoute, setIsShowing, folders
   const displayRoute = route.length > 2 ? ['...', ...route.slice(route.length - 2)] : route;
 
   const handleRoot = () => {
-    // console.log(folders);
     setIsShowing(folders.map((item) => item.name));
     setRoute([]);
     setChild(0);
