@@ -26,3 +26,14 @@ export interface fileSystemPageSchema {
   isLastRoute: string;
   setIsLastRoute: React.Dispatch<React.SetStateAction<string>>;
 }
+
+export interface RouteFolderPageProps {
+  route: string[];
+  setRoute: React.Dispatch<React.SetStateAction<string[]>>;
+  isShowing: string[];
+  setIsShowing: React.Dispatch<React.SetStateAction<string[]>>;
+  folders: fileSystemSchema[];
+  setFolders: React.Dispatch<React.SetStateAction<fileSystemSchema[]>>;
+  setChild: React.Dispatch<React.SetStateAction<number>>;
+  setIsLastRoute: React.Dispatch<React.SetStateAction<string>>;
+}
