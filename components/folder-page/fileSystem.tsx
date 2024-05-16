@@ -1,8 +1,8 @@
 'use client';
+import { faFolder } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 import { fileSystemPageSchema } from '@/components/folder-page/folderSchema';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFolder } from '@fortawesome/free-solid-svg-icons';
 
 export default function FileSystem({ folder, name, child, setChild, isShowing, setIsShowing, route, setRoute, isLastRoute, setIsLastRoute }: fileSystemPageSchema) {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +12,7 @@ export default function FileSystem({ folder, name, child, setChild, isShowing, s
     setChild(child - 1);
 
     const newData: string[] = folder.map((item) => item.name);
+
     if (child === 0) setIsShowing([...newData, name]);
     else {
       const lastIndex: string[] = isShowing.slice(child);

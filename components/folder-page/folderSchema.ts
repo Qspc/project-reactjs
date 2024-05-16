@@ -37,3 +37,12 @@ export interface RouteFolderPageProps {
   setChild: React.Dispatch<React.SetStateAction<number>>;
   setIsLastRoute: React.Dispatch<React.SetStateAction<string>>;
 }
+
+export interface ModalFolderProps {
+  folders: fileSystemSchema[];
+  route: string[];
+  setFolders: React.Dispatch<React.SetStateAction<fileSystemSchema[]>>;
+  isShowing: string[];
+  setIsShowing: React.Dispatch<React.SetStateAction<string[]>>;
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
