@@ -44,10 +44,9 @@ export default function CategoriesContent() {
         <div className="pt-[80px] pb-[40px] text-[60px] font-medium w-[70%] leading-tight tracking-tighter ">See how Asana connects work across different departments</div>
         <div className="flex flex-col gap-[48px] ">
           <div className="flex gap-[16px]  ">
-            {/* #690031 */}
             {icons.map((item, index) => (
               <div
-                className={`text-[20px] px-[24px] py-[18px] rounded-full border font-medium duration-150 ${
+                className={`text-[20px] cursor-pointer px-[24px] py-[18px] rounded-full border font-medium duration-150 ${
                   index === select ? 'bg-[#f7dee3] border-[#f7dee3] text-[#690031]' : 'bg-none hover:border-[#0d0d0d] border-[#cfcfcf] text-[#3d3d3d]'
                 } `}
                 key={index}

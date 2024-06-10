@@ -26,24 +26,27 @@ export default function NavbarPage() {
   return (
     <div className={`fixed bg-white font-semibold top-0 px-[80px] w-full h-[56px] text-[14px]  ${shadow ? 'shadow-md duration-200' : ''} text-[#727272] flex justify-between items-center `}>
       <div className="flex gap-[32px] items-center ">
-        LOGO
+        <div className="flex gap-1 items-center text-black font-bold text-[16px] ">
+          <img width={24} height={22} src="https://logo.uplead.com/amazon.com" alt="amazon logo" />
+          ASANA
+        </div>
         <div className="flex items-center ">
           {contentNav.map((item, index) => (
-            <div className="px-[14px] hover:text-black " key={index}>
+            <a href="#" className="px-[14px] hover:text-black " key={index}>
               {item}
-            </div>
+            </a>
           ))}
         </div>
       </div>
       <div className="flex items-center">
-        <div className="pr-[24px] pl-[15px] ">
+        <a href="#" className="pr-[24px] pl-[15px] ">
           <FontAwesomeIcon width={20} height={20} className="hover:text-black" icon={faGlobe} />
-        </div>
+        </a>
         <div>|</div>
         {rightContent.map((item, index) => (
-          <div key={index} className="px-[12px] hover:text-black">
+          <a href="#" key={index} className="px-[12px] hover:text-black">
             {item}
-          </div>
+          </a>
         ))}
         <button className="bg-black ml-[20px]  rounded hover:bg-red-500 text-white hover:text-black px-[16px] h-[36px] duration-100 ">Get started</button>
       </div>
